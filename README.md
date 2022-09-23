@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# 1.项目流程
+- create-react-app 创建项目,删除不需要文件,替换icon
+- src 划分功能目录
+- 重置样式 yarn add normalize.css
+- craco配置webpack 别名
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 2.router  
+- 1.yarn add react-router-config
+- 2.需要使用switch,但是6版本router移除了
+- 3.useRoutes替代
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+# 3.router 6 改变
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 组件更改 
+- 1.Switch 取消,改为 Routes  
+- 2.Route path="/home" element={<Home/>}   component=>替换成element,且直接写标签组件
+- 3. Redirect组件替换 Navigate组件 to="/xx", 写在Route 组件的element 里面
+  -  replace 属性 默认false
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 写法更改
+- 1.route 配置component取消,改为element属性,值为组件标签 < xxx/>
+- 2.useRoute() API,传入路由配置,返回一个组件  
+```
+seRoutes所在的组件，必须在<Router>中
 
-### `npm test`
+function RouteElement() {
+    const element = useRoutes(routes)
+    return element
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+export default  RouteElement;
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 4.样式
+- 1. yarn add styled-components
+- 
+- 
