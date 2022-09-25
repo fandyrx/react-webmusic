@@ -2,23 +2,20 @@ import React, { memo, useCallback, useEffect,useRef, useState } from "react";
 // redux hook
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 //redux action
-import { getTopBannerAction } from "../../store/actionCreators";
+import { getTopBannerAction } from "store/modules/discover/recommend";
 
 import { Carousel } from "antd";
 import { BannerWrapper, BannerLeft, BannerRight, BannerControl } from "./style";
+
 
 const TopBanner = memo(() => {
 		// 1. state 
 	const [currentIndex,setCurrentIndex]	= useState(0)
 	
-	// 2. redux相关获取数据,dispatch
-	const { topBanners } = useSelector(
-		(state) => ({
-			// topBanners : state.get("recommend").get("topBanners")
-			topBanners: state.getIn(["recommend", "topBanners"]),
-		}),
-		shallowEqual
-	);
+	// 2. redux相关  获取数据,dispatch
+ 	const topBanners = useSelector(state=> 
+				state.recommend.topBanners,
+				shallowEqual)
 	const dispatch = useDispatch();
 
 	//3 . hooks
@@ -29,7 +26,6 @@ const TopBanner = memo(() => {
 	}, [dispatch]);
  
 	const bannerChange = useCallback((from,to)=>{
-			// console.log(to) 
 			setCurrentIndex(to);
 	},[])
 
@@ -38,6 +34,7 @@ const TopBanner = memo(() => {
 
 	//5 .jsx
 	return (
+	
 		<BannerWrapper bgImage={bgImage}>
 			<div className="banner  wrap-v2">
 				<BannerLeft>

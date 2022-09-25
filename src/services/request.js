@@ -1,10 +1,12 @@
 import originAxios from 'axios';
+import  qs from 'qs'
 
 export default function request(option) {
 	return new Promise((resolve, reject) => {
 		// 1.创建axios的实例
 		const instance = originAxios.create({
-			baseURL: 'http://123.207.32.32:9001/',
+			// baseURL: 'http://123.207.32.32:9001/',
+			baseURL: 'http://localhost:3000',
 			timeout: 10000
 		});
 
@@ -16,8 +18,10 @@ export default function request(option) {
 			// 2.某些请求要求用户必须登录, 判断用户是否有token, 如果没有token跳转到login页面
 
 			// 3.对请求的参数进行序列化(看服务器是否需要序列化)
-			// config.data = qs.stringify(config.data)
+			config.data = qs.stringify(config.data)
 			// console.log(config);
+		
+		
 
 			// 4.等等
 			return config

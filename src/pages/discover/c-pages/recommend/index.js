@@ -1,8 +1,12 @@
 import React, { memo} from 'react'
 
 import TopBanner from './c-cpns/top-banner/index'
+import HotRecommend from './c-cpns/hot-recommend'
+import NewAlbum from './c-cpns/new-album'
+import RcmRanking from './c-cpns/rcm-ranking'
 
-import { RecommendWrapper  } from './style'
+// 样式组件
+import { Content, RecommendLeft, RecommendRight, RecommendWrapper  } from './style'
 
 
 const XRecommend = memo(() => {
@@ -10,6 +14,14 @@ const XRecommend = memo(() => {
   return (
     <RecommendWrapper >
       <TopBanner />
+        <Content className='wrap-v2'>
+            <RecommendLeft >
+              <HotRecommend />
+                <NewAlbum/> 
+              <RcmRanking />
+            </RecommendLeft>
+            <RecommendRight></RecommendRight>
+        </Content>
     </RecommendWrapper>
   )
 })
@@ -17,6 +29,12 @@ const XRecommend = memo(() => {
 
 
 export default XRecommend
+
+
+
+
+
+
 
 
 /* createStore 方式 第一版

@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { discoverMenu } from '@/services/local-data'
 
 
-import {NavLink,Outlet } from 'react-router-dom'
+import { NavLink,Outlet } from 'react-router-dom'
 import {
   DiscoverWrapper,TopMenu
 } from './style'
@@ -26,7 +26,7 @@ const XDiscover = memo(() => {
         </TopMenu>
        
       </div>
-         
+         {/* 子路由展示 */}
       <Outlet/>
     </ DiscoverWrapper>
   )
